@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Nivedha J - Full Stack Developer Portfolio. Specializing in modern web applications and AI-powered solutions.">
+  <title>Nivedha J | Full Stack Developer & AI Engineer</title>
+  <!-- Google Fonts: Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Font Awesome CDN for Premium Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Custom Cursor Elements -->
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-outline" id="cursorOutline"></div>
+
+  <!-- Fullscreen Loading Screen -->
+  <div class="loader-container" id="loader">
+    <div class="loader-content">
+      <div class="loader-ring">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div class="loader-text">Loading Experience...</div>
+    </div>
+  </div>
+
+  <!-- Interactive Canvas Particle Background -->
+  <canvas id="particles-canvas"></canvas>
+  <div class="gradient-blobs">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+  </div>
+
+  <!-- Scroll Progress Bar -->
+  <div class="scroll-progress-container">
+    <div class="scroll-progress-bar" id="scrollProgress"></div>
+  </div>
+
+  <!-- Fixed Transparent Navbar -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#home" class="logo">
+        <span class="logo-accent">&lt;</span>NJ<span class="logo-accent"> /&gt;</span>
+      </a>
+      
+      <div class="nav-menu" id="navMenu">
+        <ul class="nav-list">
+          <li class="nav-item"><a href="#home" class="nav-link active">Home</a></li>
+          <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+          <li class="nav-item"><a href="#portfolio" class="nav-link">Portfolio</a></li>
+          <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="nav-actions">
+        <!-- Dark/Light Mode Toggle -->
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle Theme">
+          <i class="fa-solid fa-moon moon-icon"></i>
+          <i class="fa-solid fa-sun sun-icon"></i>
+        </button>
+        
+        <!-- Mobile Hamburger Menu -->
+        <button class="hamburger" id="hamburgerBtn" aria-label="Open Menu">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hero-section" id="home">
+    <div class="hero-container container">
+      <div class="hero-content reveal-left">
+        <h2 class="hero-greet">Hi, I'm</h2>
+        <h1 class="hero-name">Nivedha J</h1>
+        <h3 class="hero-title">
+          <span class="typing-text" id="typing"></span>
+        </h3>
+        <p class="hero-desc">I build modern web applications and AI-powered solutions.</p>
+        
+        <div class="hero-buttons">
+          <a href="#contact" class="btn btn-primary ripple-btn">Contact Me</a>
+          <a href="#" class="btn btn-secondary ripple-btn" id="downloadResume">
+            <i class="fa-solid fa-download"></i> Download Resume
+          </a>
+        </div>
+
+        <div class="hero-socials">
+          <a href="https://linkedin.com/in/nivedha-j" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="LinkedIn">
+            <i class="fa-brands fa-linkedin-in"></i>
+          </a>
+          <a href="https://github.com/NIVEDHAJ03" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="GitHub">
+            <i class="fa-brands fa-github"></i>
+          </a>
+          <a href="mailto:nivedhaj21@gmail.com" class="social-icon" aria-label="Email">
+            <i class="fa-solid fa-envelope"></i>
+          </a>
+          <a href="https://t.me/" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Telegram">
+            <i class="fa-brands fa-telegram"></i>
+          </a>
+          <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Instagram">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-graphic-container reveal-right">
+        <div class="profile-blob-wrapper">
+          <div class="profile-blob"></div>
+          <div class="profile-glow"></div>
+          <img src="profile.png" alt="Nivedha J Profile" class="profile-img" id="profileImage">
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- About Section -->
+  <section class="about-section section" id="about">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <span class="section-subtitle">Get To Know Me</span>
+        <h2 class="section-title">About Me</h2>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-info-panel reveal-left">
+          <p class="about-text">
+            Hi, I'm Nivedha, a passionate Full Stack Developer dedicated to building responsive and user-friendly web applications. I enjoy transforming ideas into interactive digital experiences using clean code and modern technologies.
+          </p>
+          
+          <!-- Professional Statistics Cards -->
+          <div class="stats-grid">
+            <div class="stat-card glass-card reveal-zoom">
+              <div class="stat-icon-wrapper">
+                <i class="fa-solid fa-briefcase"></i>
+              </div>
+              <h3 class="stat-number" data-target="2">0</h3>
+              <p class="stat-label">Internships</p>
+            </div>
+            
+            <div class="stat-card glass-card reveal-zoom">
+              <div class="stat-icon-wrapper">
+                <i class="fa-solid fa-laptop-code"></i>
+              </div>
+              <h3 class="stat-number" data-target="10">0</h3>
+              <p class="stat-label">Projects</p>
+            </div>
+            
+            <div class="stat-card glass-card reveal-zoom">
+              <div class="stat-icon-wrapper">
+                <i class="fa-solid fa-trophy"></i>
+              </div>
+              <h3 class="stat-number" data-target="1">0</h3>
+              <p class="stat-label">Hackathon Finalist</p>
+            </div>
+
+            <div class="stat-card glass-card reveal-zoom">
+              <div class="stat-icon-wrapper">
+                <i class="fa-solid fa-layer-group"></i>
+              </div>
+              <h3 class="stat-number" data-target="100" data-suffix="%">0</h3>
+              <p class="stat-label">Frontend Developer</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Experience Timeline -->
+        <div class="timeline-container reveal-right">
+          <h3 class="timeline-header-title">Experience Timeline</h3>
+          <div class="timeline">
+            <!-- Timeline Item 1 -->
+            <div class="timeline-item glass-card">
+              <div class="timeline-dot"></div>
+              <div class="timeline-date">Jan 2025 – Feb 2025</div>
+              <h4 class="timeline-role">Full Stack Development Intern</h4>
+              <h5 class="timeline-company">Vinsup Infotech</h5>
+              <div class="timeline-body">
+                <p>Worked on frontend and backend development using Python. Database management. Real-time project development.</p>
+                <div class="timeline-skills">
+                  <span class="skill-tag">Python</span>
+                  <span class="skill-tag">Django</span>
+                  <span class="skill-tag">XAMPP</span>
+                  <span class="skill-tag">GitHub</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Timeline Item 2 -->
+            <div class="timeline-item glass-card">
+              <div class="timeline-dot"></div>
+              <div class="timeline-date">Nov 2024 – Dec 2024</div>
+              <h4 class="timeline-role">Frontend Web Development Intern</h4>
+              <h5 class="timeline-company">CodeTech IT Solutions</h5>
+              <div class="timeline-body">
+                <p>Responsive UI design, JavaScript integrations, and modern web application development practices.</p>
+                <div class="timeline-skills">
+                  <span class="skill-tag">HTML</span>
+                  <span class="skill-tag">CSS</span>
+                  <span class="skill-tag">JavaScript</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio Section -->
+  <section class="portfolio-section section" id="portfolio">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <span class="section-subtitle">My Work & Capabilities</span>
+        <h2 class="section-title">Portfolio</h2>
+      </div>
+
+      <!-- Animated Tabs Control -->
+      <div class="portfolio-tabs-container reveal-up">
+        <div class="portfolio-tabs glass-card">
+          <button class="tab-btn active" data-tab="projects">Projects</button>
+          <button class="tab-btn" data-tab="skills">Skills</button>
+          <button class="tab-btn" data-tab="participation">Participation</button>
+          <div class="tab-indicator"></div>
+        </div>
+      </div>
+
+      <!-- Tab Content Panels -->
+      <div class="tab-content-container">
+        
+        <!-- PROJECTS TAB PANEL -->
+        <div class="tab-pane active" id="projects-tab">
+          <div class="projects-grid">
+            <!-- Project 1 -->
+            <article class="project-card glass-card reveal-zoom">
+              <div class="project-img-wrapper">
+                <img src="project_portfolio.png" alt="Portfolio Website" class="project-img">
+                <div class="project-overlay">
+                  <a href="https://github.com/NIVEDHAJ03/MyPortfolio" target="_blank" rel="noopener noreferrer" class="project-overlay-link" aria-label="View Source">
+                    <i class="fa-brands fa-github"></i>
+                  </a>
+                </div>
+              </div>
+              <div class="project-info">
+                <h3 class="project-title">Portfolio Website</h3>
+                <p class="project-desc">Personal portfolio showcasing projects, skills, internships, and achievements with high-fidelity aesthetics.</p>
+                <div class="project-tech-badges">
+                  <span class="tech-badge">HTML</span>
+                  <span class="tech-badge">CSS</span>
+                  <span class="tech-badge">JavaScript</span>
+                </div>
+                <a href="https://github.com/NIVEDHAJ03/MyPortfolio" target="_blank" rel="noopener noreferrer" class="project-link-btn ripple-btn">
+                  <i class="fa-brands fa-github"></i> GitHub
+                </a>
+              </div>
+            </article>
+
+            <!-- Project 2 -->
+            <article class="project-card glass-card reveal-zoom">
+              <div class="project-img-wrapper">
+                <img src="project_crop.png" alt="Crop Yield Prediction" class="project-img">
+                <div class="project-overlay">
+                  <a href="https://github.com/NIVEDHAJ03/Crop-Yield-Prediction" target="_blank" rel="noopener noreferrer" class="project-overlay-link" aria-label="View Source">
+                    <i class="fa-brands fa-github"></i>
+                  </a>
+                </div>
+              </div>
+              <div class="project-info">
+                <h3 class="project-title">Crop Yield Prediction</h3>
+                <p class="project-desc">Machine learning web application that predicts crop yields using historical agricultural datasets and weather insights.</p>
+                <div class="project-tech-badges">
+                  <span class="tech-badge">Python</span>
+                  <span class="tech-badge">Machine Learning</span>
+                  <span class="tech-badge">Dataset</span>
+                </div>
+                <a href="https://github.com/NIVEDHAJ03/Crop-Yield-Prediction" target="_blank" rel="noopener noreferrer" class="project-link-btn ripple-btn">
+                  <i class="fa-brands fa-github"></i> GitHub
+                </a>
+              </div>
+            </article>
+
+            <!-- Project 3 -->
+            <article class="project-card glass-card reveal-zoom">
+              <div class="project-img-wrapper">
+                <img src="project_assistive.png" alt="Assistive Communication System" class="project-img">
+                <div class="project-overlay">
+                  <a href="https://github.com/NIVEDHAJ03/Assistive-Communication-System" target="_blank" rel="noopener noreferrer" class="project-overlay-link" aria-label="View Source">
+                    <i class="fa-brands fa-github"></i>
+                  </a>
+                </div>
+              </div>
+              <div class="project-info">
+                <h3 class="project-title">Assistive Communication System</h3>
+                <p class="project-desc">A communication platform for blind, deaf, and speech-impaired users utilizing text, speech synthesis, and emergency response capabilities.</p>
+                <div class="project-tech-badges">
+                  <span class="tech-badge">PHP</span>
+                  <span class="tech-badge">SQL</span>
+                  <span class="tech-badge">XAMPP</span>
+                </div>
+                <a href="https://github.com/NIVEDHAJ03/Assistive-Communication-System" target="_blank" rel="noopener noreferrer" class="project-link-btn ripple-btn">
+                  <i class="fa-brands fa-github"></i> GitHub
+                </a>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <!-- SKILLS TAB PANEL -->
+        <div class="tab-pane" id="skills-tab">
+          <div class="skills-wrapper">
+            <!-- Languages & Frontend -->
+            <div class="skills-category-card glass-card">
+              <h3 class="skills-category-title"><i class="fa-solid fa-code"></i> Languages & Frontend</h3>
+              <div class="skills-list">
+                
+                <div class="skill-item">
+                  <div class="skill-header">
+                    <span class="skill-name"><i class="fa-brands fa-java text-orange"></i> Java</span>
+                    <span class="skill-percentage">85%</span>
+                  </div>
+                  <div class="skill-bar-outer">
+                    <div class="skill-bar-inner" data-level="85%"></div>
+                  </div>
+                </div>
+
+                <div class="skill-item">
+                  <div class="skill-header">
+                    <span class="skill-name"><i class="fa-brands fa-python text-blue"></i> Python</span>
+                    <span class="skill-percentage">90%</span>
+                  </div>
+                  <div class="skill-bar-outer">
+                    <div class="skill-bar-inner" data-level="90%"></div>
+                  </div>
+                </div>
+
+                <div class="skill-item">
+                  <div class="skill-header">
+                    <span class="skill-name"><i class="fa-brands fa-html5 text-orange-red"></i> HTML / CSS</span>
+                    <span class="skill-percentage">95%</span>
+                  </div>
+                  <div class="skill-bar-outer">
+                    <div class="skill-bar-inner" data-level="95%"></div>
+                  </div>
+                </div>
+
+                <div class="skill-item">
+                  <div class="skill-header">
+                    <span class="skill-name"><i class="fa-brands fa-js text-yellow"></i> JavaScript</span>
+                    <span class="skill-percentage">90%</span>
+                  </div>
+                  <div class="skill-bar-outer">
+                    <div class="skill-bar-inner" data-level="90%"></div>
+                  </div>
+                </div>
+
+                <div class="skill-item">
+                  <div class="skill-header">
+                    <span class="skill-name"><i class="fa-brands fa-react text-cyan"></i> React</span>
+                    <span class="skill-percentage">80%</span>
+                  </div>
+                  <div class="skill-bar-outer">
+                    <div class="skill-bar-inner" data-level="80%"></div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- Backend, Databases & Dev Tools -->
+            <div class="skills-category-card glass-card">
+              <h3 class="skills-category-title"><i class="fa-solid fa-server"></i> Backend & Development Tools</h3>
+              <div class="skills-list">
+
+                <div class="skill-item">
+                  <div class="skill-header">
+                    <span class="skill-name"><i class="fa-brands fa-node-js text-green"></i> Node.js & Express.js</span>
+                    <span class="skill-percentage">80%</span>
+                  </div>
+                  <div class="skill-bar-outer">
+                    <div class="skill-bar-inner" data-level="80%"></div>
+                  </div>
+                </div>
+
+                <div class="skill-item">
+                  <div class="skill-header">
+                    <span class="skill-name"><i class="fa-solid fa-database text-teal"></i> MongoDB & SQL</span>
+                    <span class="skill-percentage">85%</span>
+                  </div>
+                  <div class="skill-bar-outer">
+                    <div class="skill-bar-inner" data-level="85%"></div>
+                  </div>
+                </div>
+
+                <div class="skill-item">
+                  <div class="skill-header">
+                    <span class="skill-name"><i class="fa-brands fa-github text-purple"></i> Git & GitHub</span>
+                    <span class="skill-percentage">90%</span>
+                  </div>
+                  <div class="skill-bar-outer">
+                    <div class="skill-bar-inner" data-level="90%"></div>
+                  </div>
+                </div>
+
+                <div class="skill-item">
+                  <div class="skill-header">
+                    <span class="skill-name"><i class="fa-solid fa-laptop-code text-pink"></i> VS Code</span>
+                    <span class="skill-percentage">95%</span>
+                  </div>
+                  <div class="skill-bar-outer">
+                    <div class="skill-bar-inner" data-level="95%"></div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PARTICIPATION TAB PANEL -->
+        <div class="tab-pane" id="participation-tab">
+          <div class="participation-timeline">
+            
+            <!-- Card 1 -->
+            <div class="participation-card glass-card reveal-up">
+              <div class="participation-icon"><i class="fa-solid fa-award"></i></div>
+              <div class="participation-content">
+                <div class="participation-meta">2025</div>
+                <h3 class="participation-title">Hacknovus 2K25</h3>
+                <p class="participation-desc">Collaborated in an intense multi-day hackathon developing smart web systems under critical timeframes.</p>
+                <button class="participation-btn ripple-btn" onclick="openModal('Hacknovus 2K25', 'Active hackathon competitor. Built predictive intelligence modules. Developed an immersive web tool to solve real-world industry bottlenecks with standard API setups.')">
+                  View Achievements
+                </button>
+              </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="participation-card glass-card reveal-up">
+              <div class="participation-icon"><i class="fa-solid fa-trophy"></i></div>
+              <div class="participation-content">
+                <div class="participation-meta">2025</div>
+                <h3 class="participation-title">CODE Arena Finalist</h3>
+                <p class="participation-desc">Pitched dynamic developer solutions to high-quality code parameters. Reached the final round among high competitive teams.</p>
+                <button class="participation-btn ripple-btn" onclick="openModal('CODE Arena Finalist', 'Achieved Finalist distinction in a high-intensity algorithm engineering competition. Solved complexity issues, optimized runtimes, and resolved algorithmic challenges.')">
+                  View Achievements
+                </button>
+              </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="participation-card glass-card reveal-up">
+              <div class="participation-icon"><i class="fa-solid fa-code-fork"></i></div>
+              <div class="participation-content">
+                <div class="participation-meta">2024</div>
+                <h3 class="participation-title">DSA Code Clash</h3>
+                <p class="participation-desc">Demonstrated robust capabilities in solving complex Data Structures and Algorithms under pressure.</p>
+                <button class="participation-btn ripple-btn" onclick="openModal('DSA Code Clash', 'Tackled advanced challenges in Dynamic Programming, Graphs, and Hash structures. Recognized for fast code output and clean code layout.')">
+                  View Achievements
+                </button>
+              </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="participation-card glass-card reveal-up">
+              <div class="participation-icon"><i class="fa-solid fa-circle-nodes"></i></div>
+              <div class="participation-content">
+                <div class="participation-meta">2024</div>
+                <h3 class="participation-title">TechQuest #24</h3>
+                <p class="participation-desc">Participated in technical case studies, debugging contests, and fast engineering modules.</p>
+                <button class="participation-btn ripple-btn" onclick="openModal('TechQuest #24', 'Competed in technical debugging and prototype challenge. Built lightweight utility scripts solving core network issues.')">
+                  View Achievements
+                </button>
+              </div>
+            </div>
+
+            <!-- Card 5 -->
+            <div class="participation-card glass-card reveal-up">
+              <div class="participation-icon"><i class="fa-solid fa-lightbulb"></i></div>
+              <div class="participation-content">
+                <div class="participation-meta">2026</div>
+                <h3 class="participation-title">Ideathon 2026 Finalist</h3>
+                <p class="participation-desc">Designed and presented AI-driven application prototypes to solve climate and crop prediction challenges.</p>
+                <button class="participation-btn ripple-btn" onclick="openModal('Ideathon 2026 Finalist', 'Finalist in the engineering ideas program. Presented the crop optimization web concept featuring responsive layouts, and modern backend architectures.')">
+                  View Achievements
+                </button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact-section section" id="contact">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <span class="section-subtitle">Get In Touch</span>
+        <h2 class="section-title">Contact</h2>
+      </div>
+
+      <div class="contact-grid">
+        <!-- Contact Left Information -->
+        <div class="contact-info reveal-left">
+          <h3 class="contact-subtitle">Let's Connect</h3>
+          <p class="contact-info-desc">I am open to discuss interesting freelance jobs, internship opportunities, software engineering roles, and AI projects. Feel free to reach out using the details below or by submitting the contact form.</p>
+          
+          <div class="contact-details">
+            
+            <a href="mailto:nivedhaj21@gmail.com" class="contact-detail-card glass-card">
+              <div class="contact-detail-icon">
+                <i class="fa-solid fa-envelope"></i>
+              </div>
+              <div class="contact-detail-text">
+                <span class="contact-detail-label">Email</span>
+                <span class="contact-detail-value">nivedhaj21@gmail.com</span>
+              </div>
+            </a>
+
+            <a href="https://github.com/NIVEDHAJ03" target="_blank" rel="noopener noreferrer" class="contact-detail-card glass-card">
+              <div class="contact-detail-icon">
+                <i class="fa-brands fa-github"></i>
+              </div>
+              <div class="contact-detail-text">
+                <span class="contact-detail-label">GitHub</span>
+                <span class="contact-detail-value">github.com/NIVEDHAJ03</span>
+              </div>
+            </a>
+
+            <a href="https://linkedin.com/in/nivedha-j" target="_blank" rel="noopener noreferrer" class="contact-detail-card glass-card">
+              <div class="contact-detail-icon">
+                <i class="fa-brands fa-linkedin-in"></i>
+              </div>
+              <div class="contact-detail-text">
+                <span class="contact-detail-label">LinkedIn</span>
+                <span class="contact-detail-value">linkedin.com/in/nivedha-j</span>
+              </div>
+            </a>
+
+          </div>
+        </div>
+
+        <!-- Contact Right Form -->
+        <div class="contact-form-container glass-card reveal-right">
+          <form class="contact-form" id="contactForm" novalidate>
+            <div class="input-group">
+              <input type="text" id="formName" class="form-input" required placeholder=" ">
+              <label for="formName" class="form-label">Full Name</label>
+              <span class="input-error" id="nameError">Name is required</span>
+            </div>
+
+            <div class="input-group">
+              <input type="email" id="formEmail" class="form-input" required placeholder=" ">
+              <label for="formEmail" class="form-label">Email Address</label>
+              <span class="input-error" id="emailError">Please enter a valid email</span>
+            </div>
+
+            <div class="input-group">
+              <input type="text" id="formSubject" class="form-input" required placeholder=" ">
+              <label for="formSubject" class="form-label">Subject</label>
+              <span class="input-error" id="subjectError">Subject is required</span>
+            </div>
+
+            <div class="input-group">
+              <textarea id="formMessage" class="form-input form-textarea" required placeholder=" " rows="4"></textarea>
+              <label for="formMessage" class="form-label">Message</label>
+              <span class="input-error" id="messageError">Message is required</span>
+            </div>
+
+            <button type="submit" class="submit-btn ripple-btn">
+              <span>Send Message</span>
+              <i class="fa-solid fa-paper-plane"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-container">
+      <p class="copyright">&copy; 2026 Nivedha J. All rights reserved.</p>
+      <p class="credits">Built with <i class="fa-solid fa-heart"></i> using HTML5, CSS3 &amp; Vanilla JavaScript</p>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <button class="back-to-top" id="backToTopBtn" aria-label="Back to Top">
+    <i class="fa-solid fa-chevron-up"></i>
+  </button>
+
+  <!-- Interactive Achievement Modal Popup -->
+  <div class="modal-overlay" id="achievementModal">
+    <div class="modal-card glass-card">
+      <button class="modal-close" id="modalCloseBtn" aria-label="Close Modal">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <h3 class="modal-title" id="modalTitle">Achievement</h3>
+      <div class="modal-body" id="modalContent">Details go here...</div>
+    </div>
+  </div>
+
+  <!-- Success Notification Popup -->
+  <div class="success-popup" id="successPopup">
+    <div class="success-popup-card glass-card">
+      <div class="success-icon-wrapper">
+        <i class="fa-solid fa-check"></i>
+      </div>
+      <h3>Message Sent!</h3>
+      <p>Thank you for reaching out. I'll get back to you as soon as possible.</p>
+      <button class="btn btn-primary btn-close-popup" id="closeSuccessBtn">Close</button>
+    </div>
+  </div>
+
+  <!-- Core JavaScript -->
+  <script src="script.js" defer></script>
+</body>
+</html>
