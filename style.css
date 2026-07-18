@@ -1914,3 +1914,42 @@ body.light-mode .skill-bar-outer {
   opacity: 1;
   transform: translate(0) scale(1);
 }
+
+
+.skills-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+    gap:20px;
+    margin-top:25px;
+}
+
+.skill-card{
+    background:rgba(255,255,255,.08);
+    backdrop-filter:blur(12px);
+    border:1px solid rgba(255,255,255,.15);
+    border-radius:16px;
+    padding:25px 15px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    transition:.35s ease;
+    cursor:pointer;
+}
+
+.skill-card i{
+    font-size:42px;
+    margin-bottom:12px;
+}
+
+.skill-card span{
+    font-size:16px;
+    font-weight:600;
+    color:#fff;
+}
+
+.skill-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 0 25px rgba(108,99,255,.4);
+    border-color:#6C63FF;
+}
